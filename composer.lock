@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "beafa7f21312bb53e75cda1e57bb996b",
+    "content-hash": "4fd28a0c1959c04c2bbe46341290aed7",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1034,6 +1034,64 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "jxlwqq/json-editor",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/json-editor.git",
+                "reference": "95b746b4bf457f88637b395012b1a484724c5501"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-admin-extensions/json-editor/zipball/95b746b4bf457f88637b395012b1a484724c5501",
+                "reference": "95b746b4bf457f88637b395012b1a484724c5501",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "encore/laravel-admin": "~1.6",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Jxlwqq\\JsonEditor\\JsonEditorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jxlwqq\\JsonEditor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "jxlwqq",
+                    "email": "jxlwqq@gmail.com"
+                }
+            ],
+            "description": "JSON Editor for Laravel-admin",
+            "homepage": "https://github.com/jxlwqq/json-editor",
+            "keywords": [
+                "extension",
+                "laravel-admin"
+            ],
+            "time": "2018-10-20T15:17:00+00:00"
         },
         {
             "name": "laravel/framework",

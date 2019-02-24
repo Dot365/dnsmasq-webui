@@ -13,5 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
          $this->call(\Encore\Admin\Auth\Database\AdminTablesSeeder::class);
+         $this->call(DNSManagerSeeder::class);
+         $this->call(ConfigureSeeder::class);
     }
 }

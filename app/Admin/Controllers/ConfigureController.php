@@ -2,8 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Domain;
-use App\Models\Record;
+use App\Models\Configure;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Form;
@@ -11,16 +10,9 @@ use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
 
-class RecordController extends Controller
+class ConfigureController extends Controller
 {
     use HasResourceActions;
-
-    protected $recordTypes = [
-        'a' => 'A',
-        'aaaa' => 'AAAA',
-        'cname' => 'CNAME',
-        'txt' => 'TXT',
-    ];
 
     /**
      * Index interface.
@@ -87,14 +79,10 @@ class RecordController extends Controller
      */
     protected function grid()
     {
-        $grid = new Grid(new Record);
+        $grid = new Grid(new Configure);
 
         $grid->id('Id');
-        $grid->domain_id('Domain')->display(function($domainId) {
-            return Domain::find($domainId)->domain;
-        });
-        $grid->type('Type');
-        $grid->record('Record');
+        $grid->name('Name');
         $grid->content('Content');
         $grid->remark('Remark');
         $grid->created_at('Created at');
@@ -111,12 +99,10 @@ class RecordController extends Controller
      */
     protected function detail($id)
     {
-        $show = new Show(Record::findOrFail($id));
+        $show = new Show(Configure::findOrFail($id));
 
         $show->id('Id');
-        $show->domain_id('Domain id');
-        $show->type('Type');
-        $show->record('Record');
+        $show->name('Name');
         $show->content('Content');
         $show->remark('Remark');
         $show->created_at('Created at');
@@ -132,19 +118,10 @@ class RecordController extends Controller
      */
     protected function form()
     {
-        $form = new Form(new Record);
+        $form = new Form(new Configure);
 
-        $domains = Domain::all(['id', 'domain'])->pluck('domain', 'id')->toArray();
-        $form->select('domain_id', 'Domain')
-            ->options($domains)
-            ->default(array_first(array_keys($domains)))
-            ->rules('required');
-        $form->radio('type', 'Type')
-            ->options($this->recordTypes)
-            ->default(array_first(array_keys($this->recordTypes)))
-            ->rules('required');
-        $form->text('record', 'Record')->rules('required');
-        $form->text('content', 'Content')->rules('required');
+        $form->text('name', 'Name')->rules('required');
+        $form->json('content', 'Content')->rules('required');
         $form->text('remark', 'Remark');
 
         return $form;

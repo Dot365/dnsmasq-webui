@@ -124,7 +124,7 @@ class DomainController extends Controller
     {
         $form = new Form(new Domain);
 
-        $form->text('domain', 'Domain');
+        $form->text('domain', 'Domain')->rules('required');
         $form->text('remark', 'Remark');
 
         return $form;

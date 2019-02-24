@@ -13,4 +13,5 @@ Route::group([
     $router->get('/', 'HomeController@index');
     $router->resource('domains', DomainController::class);
     $router->resource('records', RecordController::class);
+    $router->resource('configures', ConfigureController::class);
 });

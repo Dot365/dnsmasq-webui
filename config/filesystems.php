@@ -48,6 +48,11 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'dnsmasq' => [
+            'driver' => 'local',
+            'root' => storage_path('app/dnsmasq'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
